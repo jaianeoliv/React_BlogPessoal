@@ -1,0 +1,17 @@
+.textos1{
+    font-weight: bold !important;
+}
+
+.imagem{
+    background-image: url(https://i.imgur.com/4hOpjVu.jpg) !important;
+    background-repeat: no-repeat !important;
+    width: 100vh !important;
+    min-height: 100v !important;
+    background-size: cover;
+    background-position: center;
+
+}
+
+.text-decorator-none{
+    text-decoration: none;
+}

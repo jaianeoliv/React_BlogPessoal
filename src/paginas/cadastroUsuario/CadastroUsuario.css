@@ -1,0 +1,16 @@
+.imagem2{
+    background-image: url(https://i.imgur.com/4hOpjVu.jpg)!important;
+    background-repeat: no-repeat;
+    width: 100vh;
+    min-height: 100v;
+    background-size: cover;
+    background-position: center;
+}
+
+.textos2{
+    font-weight: bold !important;
+}
+
+.btnCancelar{
+    margin-right: 20px !important;
+}
