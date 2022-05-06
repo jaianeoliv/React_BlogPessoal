@@ -1,10 +1,10 @@
 .box1{
-    background-color: #3F51B5;
+    background-color: #2b1b60;
     height: 125px;
 }
 
 .box2{
-    background-color: #303F9F;
+    background-color: #342174;
     height: 60px;
 }
 
@@ -15,4 +15,14 @@
 
 .textos{
     color: white; 
+    font-family: monospace !important;
+}
+
+.iredes{
+    display: flex;
+    gap: 15px;
+}
+
+.text-decoration-none{
+    text-decoration: none;
 }

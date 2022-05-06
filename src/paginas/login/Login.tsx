@@ -4,6 +4,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import useLocalStorage from 'react-use-localstorage';
 import {login} from '../../services/Service';
 import UserLogin from '../../models/UserLogin';
+
 import './Login.css';
 
 function Login() {
@@ -17,7 +18,6 @@ function Login() {
         id: 0,
         usuario: "",
         senha: "",
-        foto: "",
         token: ""
     })
 
@@ -62,7 +62,7 @@ function Login() {
                         <TextField value={userLogin.senha} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)} id='senha' label='senha' variant='outlined' name='senha' margin='normal' type='password' fullWidth />
 
                         <Box marginTop={2} textAlign='center'>
-                            <Button type='submit' variant='contained' color='primary'>
+                            <Button type='submit' variant='contained'  color='primary'>
                                  Logar
                             </Button>
                         </Box>

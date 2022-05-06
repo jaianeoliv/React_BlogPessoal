@@ -88,13 +88,6 @@ function CadastrarUsuario() {
                             placeholder='Insira seu nome'
                             required />
 
-                        <TextField
-                            value={user.foto}
-                            onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)}
-                            id='foto' label='foto' variant='outlined'
-                            name='foto' margin='normal' fullWidth
-                            placeholder='Insira um link de foto'
-                            required />
 
                         <TextField
                             value={user.usuario}
@@ -121,13 +114,15 @@ function CadastrarUsuario() {
                             required />
                         <Box marginTop={2} textAlign='center'>
                             <Link to='/login' className='text-decorator-none'>
-                                <Button variant='contained' color='secondary' className='btnCancelar'>
+                                <Button variant='contained'  className='btnCancelar'>
                                     Cancelar
                                 </Button>
                             </Link>
-                            <Button type='submit' variant='contained' color='primary'>
-                                Cadastrar
-                            </Button>
+                            
+                               <Button type='submit' variant='contained' >
+                                    Cadastrar
+                                </Button> 
+                            
                         </Box>
                     </form>
                 </Box>

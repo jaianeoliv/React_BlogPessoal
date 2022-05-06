@@ -6,3 +6,20 @@
 .text-decorator-none{
     text-decoration: none;
 }
+
+.barra{
+    background-color: #2b1b60 !important;
+}
+
+.texto-direita{
+    justify-content: flex-end !important; 
+}
+
+.texto2{
+    font-family: monospace !important;
+    padding-right: 600px !important;
+}
+
+.fonte-mono{
+    font-family: monospace !important;
+}
