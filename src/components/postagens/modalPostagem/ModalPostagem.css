@@ -6,3 +6,7 @@
     border-color: white !important;
     background-color: white !important;
 }
+
+.fonte-mono{
+    font-family: monospace;
+}

@@ -34,11 +34,9 @@ function CadastrarUsuario() {
         }
     }, [userResult])
 
-
     function confirmarSenhaHandle(e: ChangeEvent<HTMLInputElement>) {
         setConfirmarSenha(e.target.value)
     }
-
 
     function updatedModel(e: ChangeEvent<HTMLInputElement>) {
         setUser({
@@ -47,19 +45,17 @@ function CadastrarUsuario() {
         })
 
     }
+
     async function cadastrar(e: ChangeEvent<HTMLFormElement>) {
         e.preventDefault()
         if (confirmarSenha === user.senha && user.senha.length >= 8) {
-
 
             try {
                 cadastroUsuario(`/usuarios/cadastrar`, user, setUserResult)
                 alert('Usuario cadastrado com sucesso')
 
-
             } catch (error) {
                 console.log(`Error: ${error}`)
-
 
                 alert("Erro ao cadastrar o Usuário")
             }
@@ -72,8 +68,6 @@ function CadastrarUsuario() {
         }
     }
 
-
-
     return (
         <Grid container direction='row' justifyContent='center' alignItems='center'>
             <Grid item xs={6} className='imagem2'></Grid>
@@ -82,7 +76,7 @@ function CadastrarUsuario() {
                     <form onSubmit={cadastrar}>
                         <Typography variant='h3' gutterBottom color='textPrimary' component='h3' align='center' className='textos2'>Cadastrar</Typography>
                         <TextField
-                            value={user.nome}onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)}
+                            value={user.nome} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)}
                             id='nome' label='nome' variant='outlined'
                             name='nome' margin='normal' fullWidth
                             placeholder='Insira seu nome'
@@ -112,30 +106,22 @@ function CadastrarUsuario() {
                             name='confirmarSenha' margin='normal' type='password' fullWidth
                             placeholder='Insira novamente a senha'
                             required />
-                        <Box marginTop={2} textAlign='center'>
+                        <Box className='box-botao' marginTop={2} textAlign='center'>
                             <Link to='/login' className='text-decorator-none'>
-                                <Button variant='contained'  className='btnCancelar'>
+                                <Button  variant='contained' className='botao'>
                                     Cancelar
                                 </Button>
                             </Link>
-                            
-                               <Button type='submit' variant='contained' >
-                                    Cadastrar
-                                </Button> 
-                            
+
+                            <Button className='botao' type='submit' variant='contained' >
+                                Cadastrar
+                            </Button>
+
                         </Box>
                     </form>
                 </Box>
-
             </Grid>
-
-
         </Grid>
-
-
-
-
     );
 }
-
 export default CadastrarUsuario;

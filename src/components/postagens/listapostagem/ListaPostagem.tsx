@@ -1,20 +1,22 @@
 import React, { useEffect, useState } from 'react'
 import { Box, Button, Card, CardActions, CardContent, Typography } from '@material-ui/core'
 import { Link, useNavigate } from 'react-router-dom'
-import useLocalStorage from 'react-use-localstorage'
-
+import { useSelector } from 'react-redux'
+import { TokenState } from '../../../store/tokens/tokensReducer'
 import Postagem from '../../../models/Postagem'
 import { busca } from '../../../services/Service'
 
 import './ListaPostagem.css'
 
+
 function ListaPostagem() {
 
   let history = useNavigate()
-
   const [posts, setPost] = useState<Postagem[]>([])
 
-  const [token, setToken] = useLocalStorage("token")
+  const token = useSelector<TokenState, TokenState["tokens"]>(
+    (state) => state.tokens
+);
 
   useEffect(() => {
     if (token === "") {
@@ -39,8 +41,8 @@ function ListaPostagem() {
     <>
       {posts.map(post => (
         <Box m={2} >
-          <Card variant="outlined">
-            <CardContent>
+          <Card className='back-card' variant="outlined">
+            <CardContent >
 
               <Typography color="textSecondary" gutterBottom>
                 Postagens
@@ -54,7 +56,7 @@ function ListaPostagem() {
                 {post.texto}
               </Typography>
 
-              <Typography variant="body2" component="p">
+              <Typography className='pd-30' variant="body2" component="p">
                 {post.tema?.descricao}
               </Typography>
 
@@ -65,7 +67,7 @@ function ListaPostagem() {
 
                 <Link to={`/formularioPostagem/${post.id}`} className="text-decorator-none" >
                   <Box mx={1}>
-                    <Button variant="contained" className="marginLeft" size='small' color="primary" >
+                    <Button variant="contained" className="marginLeft botao" size='small' >
                       Atualizar
                     </Button>
                   </Box>
@@ -73,7 +75,7 @@ function ListaPostagem() {
 
                 <Link to={`/deletarPostagem/${post.id}`} className="text-decorator-none">
                   <Box mx={1}>
-                    <Button variant="contained" size='small' color="secondary">
+                    <Button variant="contained" size='small' className='botao2'>
                       Deletar
                     </Button>
                   </Box>

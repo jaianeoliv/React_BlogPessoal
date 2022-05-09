@@ -9,8 +9,18 @@
 
 .textos2{
     font-weight: bold !important;
+    font-family: monospace !important;
 }
 
-.btnCancelar{
-    margin-right: 20px !important;
+.botao {
+    border-color: #2b1b60 !important;
+    background-color: #2b1b60 !important;
+    color: white !important;
+    font-family: monospace !important;
+}
+
+.box-botao{
+    display: flex;
+    justify-content: center;
+    gap: 15px !important;
 }

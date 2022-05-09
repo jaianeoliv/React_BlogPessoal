@@ -1,12 +1,13 @@
 import React, { ChangeEvent, useEffect, useState } from 'react'
-import { Button, Container, TextField, Typography } from '@material-ui/core'
+import { Box, Button, Container, TextField, Typography } from '@material-ui/core'
 import { useNavigate, useParams } from 'react-router-dom'
-import useLocalStorage from 'react-use-localstorage'
 
 import { buscaId, post, put } from '../../../services/Service'
 import Tema from '../../../models/Tema'
 
 import "./CadastroTema.css"
+import { useSelector } from 'react-redux'
+import { TokenState } from '../../../store/tokens/tokensReducer'
 
 function CadastroTema() {
 
@@ -14,12 +15,15 @@ function CadastroTema() {
 
     const { id } = useParams<{ id: string }>()
 
-    const [token, setToken] = useLocalStorage('token')
-
     const [tema, setTema] = useState<Tema>({
         id: 0,
         descricao: ''
     })
+
+    const token = useSelector<TokenState, TokenState["tokens"]>(
+        (state) => state.tokens
+    );
+
 
     useEffect(() => {
         if (token === "") {
@@ -107,9 +111,11 @@ function CadastroTema() {
                     margin="normal"
                     fullWidth
                 />
-                <Button type="submit" variant="contained" color="primary">
-                    Finalizar
-                </Button>
+                <Box className='bnt-tema pdd-30'>
+                    <Button className='botao' type="submit" variant="contained" >
+                        Finalizar
+                    </Button>
+                </Box>
             </form>
         </Container>
     )

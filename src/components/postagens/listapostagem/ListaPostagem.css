@@ -1,3 +1,27 @@
 .text-decorator-none{
     text-decoration: none;
 }
+
+.botao {
+    border-color: #2b1b60 !important;
+    background-color: #2b1b60 !important;
+    color: white !important;
+    font-family: monospace !important;
+
+}
+
+.botao2 {
+    border-color: #7057c0  !important;
+    background-color: #7057c0 !important;
+    color: white !important;
+    font-family: monospace !important;
+}
+
+.pd-30{
+    padding-top: 05px;
+}
+
+.back-card{
+    background-color: #f2fac6 !important;
+  
+}

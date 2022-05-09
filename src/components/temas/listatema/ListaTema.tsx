@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from 'react'
 import { Box, Button, Card, CardActions, CardContent, Typography } from '@material-ui/core'
 import { Link, useNavigate } from 'react-router-dom'
-import useLocalStorage from 'react-use-localstorage'
+
 
 import Tema from '../../../models/Tema'
 import { busca } from '../../../services/Service'
 
 import './ListaTema.css'
+import { useSelector } from 'react-redux'
+import { TokenState } from '../../../store/tokens/tokensReducer'
 
 function ListaTema() {
 
@@ -14,7 +16,10 @@ function ListaTema() {
 
   const [temas, setTemas] = useState<Tema[]>([])
 
-  const [token, setToken] = useLocalStorage('token')
+  const token = useSelector<TokenState, TokenState["tokens"]>(
+    (state) => state.tokens
+  );
+
 
   useEffect(() => {
     if (token === "") {
@@ -48,7 +53,7 @@ function ListaTema() {
                 </Typography>
 
                 <Typography variant="h5" component="h2">
-                  { tema.descricao }
+                  {tema.descricao}
                 </Typography>
 
               </CardContent>
@@ -56,17 +61,17 @@ function ListaTema() {
               <CardActions>
                 <Box display="flex" justifyContent="center" mb={1.5} >
 
-                  <Link to={`/formularioTema/${ tema.id }`} className="text-decorator-none">
+                  <Link to={`/formularioTema/${tema.id}`} className="text-decorator-none">
                     <Box mx={1}>
-                      <Button variant="contained" className="marginLeft" size='small' color="primary" >
+                      <Button variant="contained" className="marginLeft botao" size='small' >
                         Atualizar
                       </Button>
                     </Box>
                   </Link>
 
-                  <Link to={`/deletarTema/${ tema.id }`} className="text-decorator-none">
+                  <Link to={`/deletarTema/${tema.id}`} className="text-decorator-none">
                     <Box mx={1}>
-                      <Button variant="contained" size='small' color="secondary">
+                      <Button variant="contained" size='small' className='botao2'>
                         Deletar
                       </Button>
                     </Box>

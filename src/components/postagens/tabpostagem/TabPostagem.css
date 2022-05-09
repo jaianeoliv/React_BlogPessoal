@@ -1,8 +1,12 @@
-.titulo{
-    font-weight: bold;
- }
+.titulo {
+   font-weight: bold;
+}
 
- .fonte-mono2{
-    font-size: 16px !important;
-    font-family: monospace !important;
- }
+.fonte-mono2 {
+   font-size: 16px !important;
+   font-family: monospace !important;
+}
+
+.barra {
+   background-color: #2b1b60 !important;
+}

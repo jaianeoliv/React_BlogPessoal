@@ -1,3 +1,19 @@
 .topo{
     margin-top: 20px;
 }
+
+.bnt-tema{
+    display: flex;
+    justify-content: center;
+}
+
+.pdd-30{
+    padding-top: 10px;
+}
+
+.botao-tema{
+    border-color: #2b1b60 !important;
+    background-color: #2b1b60 !important;
+    color: white !important;
+    font-family: monospace !important;
+}
