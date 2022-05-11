@@ -19,8 +19,23 @@
     font-family: monospace !important;
 }
 
+.botao2 {
+    border-color: #7057c0  !important;
+    background-color: #7057c0 !important;
+    color: white !important;
+    font-family: monospace !important;
+}
+
 .box-botao{
     display: flex;
     justify-content: center;
     gap: 15px !important;
+}
+
+.cad-texto{
+    display: flex;
+    justify-content: end;
+    font-family: monospace;
+    font-style: oblique;
+    color: rgb(87, 85, 85);
 }

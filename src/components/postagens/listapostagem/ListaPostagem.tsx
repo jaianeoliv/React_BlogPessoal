@@ -7,6 +7,7 @@ import Postagem from '../../../models/Postagem'
 import { busca } from '../../../services/Service'
 
 import './ListaPostagem.css'
+import { toast } from 'react-toastify'
 
 
 function ListaPostagem() {
@@ -20,8 +21,16 @@ function ListaPostagem() {
 
   useEffect(() => {
     if (token === "") {
-      alert("Você precisa estar logado")
-      history("/login")
+      toast.error('Você precisa estar logado', {
+        position: "top-right",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: false,
+        draggable: false,
+        theme: "colored",
+        progress: undefined,
+    });
     }
   }, [token])
 

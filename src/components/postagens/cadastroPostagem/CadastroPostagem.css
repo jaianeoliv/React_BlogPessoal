@@ -1,0 +1,10 @@
+.fonte-mono{
+    font-family: monospace;
+}
+
+.botao {
+    border-color: #2b1b60 !important;
+    background-color: #2b1b60 !important;
+    color: white !important;
+    font-family: monospace !important;
+}

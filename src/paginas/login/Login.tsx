@@ -7,6 +7,7 @@ import UserLogin from '../../models/UserLogin';
 import './Login.css';
 import { useDispatch } from 'react-redux';
 import { addToken } from '../../store/tokens/actions';
+import { toast } from 'react-toastify';
 
 function Login() {
 
@@ -39,18 +40,36 @@ function Login() {
         e.preventDefault();
         try {
             await login('/usuarios/logar', userLogin, setToken)
-            alert("Usuário logado com sucesso");
+            toast.success('Usuário logado com sucesso', {
+                position: "top-right",
+                autoClose: 2000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: false,
+                draggable: false,
+                theme: "colored",
+                progress: undefined,
+            });
 
         } catch (error) {
-            alert("Dados do usuário inconsistentes");
+            toast.error('Dados do usuário inconsistentes', {
+                position: "top-right",
+                autoClose: 2000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: false,
+                draggable: false,
+                theme: "colored",
+                progress: undefined,
+            });
         };
     }
 
     return (
-        <Grid container direction='row' justifyContent='center' alignItems='center'>
+        <Grid className='box-form' container direction='row' justifyContent='center' alignItems='center'>
             <Grid  xs={6}>
-                <Box paddingX={20}>
-
+                <Box  paddingX={20}>
+                
                     <form onSubmit={onSubmit}>
                         <Typography variant='h3' gutterBottom 
                         color='textPrimary' 

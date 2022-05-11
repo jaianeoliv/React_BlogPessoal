@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react'
-import { Box, Button, Card, CardActions, CardContent, Typography } from '@material-ui/core'
+import { Box, Paper, Button, Card, CardActions, CardContent, Typography } from '@material-ui/core'
 import { Link, useNavigate } from 'react-router-dom'
-
+import DeleteIcon from '@mui/icons-material/Delete';
+import SendIcon from '@mui/icons-material/Send';
 
 import Tema from '../../../models/Tema'
 import { busca } from '../../../services/Service'
@@ -9,6 +10,7 @@ import { busca } from '../../../services/Service'
 import './ListaTema.css'
 import { useSelector } from 'react-redux'
 import { TokenState } from '../../../store/tokens/tokensReducer'
+import { toast } from 'react-toastify';
 
 function ListaTema() {
 
@@ -23,7 +25,16 @@ function ListaTema() {
 
   useEffect(() => {
     if (token === "") {
-      alert("Você precisa estar logado")
+      toast.error('Você precisa estar logado', {
+        position: "top-right",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: false,
+        draggable: false,
+        theme: "colored",
+        progress: undefined,
+    });
       history("/login")
     }
   }, [token])
@@ -45,7 +56,7 @@ function ListaTema() {
       {
         temas.map(tema => (
           <Box m={2} >
-            <Card variant="outlined">
+            <Card className='back-card' variant="outlined">
               <CardContent>
 
                 <Typography color="textSecondary" gutterBottom>
@@ -61,22 +72,21 @@ function ListaTema() {
               <CardActions>
                 <Box display="flex" justifyContent="center" mb={1.5} >
 
-                  <Link to={`/formularioTema/${tema.id}`} className="text-decorator-none">
-                    <Box mx={1}>
-                      <Button variant="contained" className="marginLeft botao" size='small' >
-                        Atualizar
-                      </Button>
-                    </Box>
-                  </Link>
-
                   <Link to={`/deletarTema/${tema.id}`} className="text-decorator-none">
                     <Box mx={1}>
-                      <Button variant="contained" size='small' className='botao2'>
+                      <Button startIcon={<DeleteIcon fontSize="small" />} variant="contained" size='small' className='botao2'>
                         Deletar
                       </Button>
                     </Box>
                   </Link>
-
+                  
+                  <Link to={`/formularioTema/${tema.id}`} className="text-decorator-none">
+                    <Box mx={1}>
+                      <Button variant="contained" endIcon={<SendIcon />} className="marginLeft botao" size='small' >
+                        Atualizar
+                      </Button>
+                    </Box>
+                  </Link>
                 </Box>
               </CardActions>
 

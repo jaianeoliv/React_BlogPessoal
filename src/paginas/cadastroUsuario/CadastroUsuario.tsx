@@ -1,11 +1,12 @@
 import React, { useState, useEffect, ChangeEvent } from 'react';
-import { Grid, Box, Typography, Button, TextField } from '@material-ui/core';
+import { Grid, Box, Typography, Button, TextField, FormHelperText } from '@material-ui/core';
 import { Link, useNavigate } from 'react-router-dom'
 import User from '../../models/User';
 import { cadastroUsuario } from '../../services/Service';
 
 
 import './CadastroUsuario.css';
+import { toast } from 'react-toastify';
 
 
 function CadastrarUsuario() {
@@ -52,16 +53,42 @@ function CadastrarUsuario() {
 
             try {
                 cadastroUsuario(`/usuarios/cadastrar`, user, setUserResult)
-                alert('Usuario cadastrado com sucesso')
+                toast.success('Usuario cadastrado com sucesso', {
+                    position: "top-right",
+                    autoClose: 2000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: false,
+                    draggable: false,
+                    theme: "colored",
+                    progress: undefined,
+                });
 
             } catch (error) {
                 console.log(`Error: ${error}`)
-
-                alert("Erro ao cadastrar o Usuário")
+                toast.error('Erro ao cadastrar o Usuário', {
+                    position: "top-right",
+                    autoClose: 2000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: false,
+                    draggable: false,
+                    theme: "colored",
+                    progress: undefined,
+                });
             }
 
         } else {
-            alert('Dados inconsistentes. Verifique as informações de cadastro.')
+            toast.error('Dados inconsistentes. Verifique as informações de cadastro.', {
+                position: "top-right",
+                autoClose: 2000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: false,
+                draggable: false,
+                theme: "colored",
+                progress: undefined,
+            });
 
             setUser({ ...user, senha: "" })
             setConfirmarSenha("")
@@ -106,9 +133,12 @@ function CadastrarUsuario() {
                             name='confirmarSenha' margin='normal' type='password' fullWidth
                             placeholder='Insira novamente a senha'
                             required />
+                       
+                        <FormHelperText>*Campo obrigatório</FormHelperText>
+                            
                         <Box className='box-botao' marginTop={2} textAlign='center'>
                             <Link to='/login' className='text-decorator-none'>
-                                <Button  variant='contained' className='botao'>
+                                <Button variant='contained' className='botao2'>
                                     Cancelar
                                 </Button>
                             </Link>
