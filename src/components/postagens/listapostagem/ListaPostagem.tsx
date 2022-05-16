@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Box, Button, Card, CardActions, CardContent, Typography } from '@material-ui/core'
+import { Box, Button, Card, CardActions, CardContent, Grid, Typography } from '@material-ui/core'
 import { Link, useNavigate } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 import { TokenState } from '../../../store/tokens/tokensReducer'
@@ -17,11 +17,11 @@ function ListaPostagem() {
 
   const token = useSelector<TokenState, TokenState["tokens"]>(
     (state) => state.tokens
-);
+  );
 
   useEffect(() => {
     if (token === "") {
-      toast.error('Você precisa estar logado', {
+      toast.warn('Você precisa estar logado', {
         position: "top-right",
         autoClose: 2000,
         hideProgressBar: false,
@@ -30,7 +30,7 @@ function ListaPostagem() {
         draggable: false,
         theme: "colored",
         progress: undefined,
-    });
+      });
     }
   }, [token])
 
@@ -48,54 +48,59 @@ function ListaPostagem() {
 
   return (
     <>
+      <Grid container className='caixa-grid'>
       {posts.map(post => (
-        <Box m={2} >
-          <Card className='back-card' variant="outlined">
-            <CardContent >
+      
 
-              <Typography color="textSecondary" gutterBottom>
-                Postagens
-              </Typography>
+          <Box className='caixa-post' m={2}  >
+            <Card className='back-card' variant="outlined">
+              <CardContent >
 
-              <Typography variant="h5" component="h2">
-                {post.titulo}
-              </Typography>
+                <Typography className='fonte-mono' color="textSecondary" gutterBottom>
+                  Postagens
+                </Typography>
 
-              <Typography variant="body2" component="p">
-                {post.texto}
-              </Typography>
+                <Typography className='fonte-mono' variant="h5" component="h2">
+                  {post.titulo}
+                </Typography>
 
-              <Typography className='pd-30' variant="body2" component="p">
-                {post.tema?.descricao}
-              </Typography>
+                <Typography className='fonte-mono' variant="body2" component="p">
+                  {post.texto}
+                </Typography>
 
-            </CardContent>
+                <Typography className='pd-30 text-gray fonte-mono' variant="body2" component="p">
+                  {post.tema?.descricao}
+                </Typography>
 
-            <CardActions>
-              <Box display="flex" justifyContent="center" mb={1.5}>
+              </CardContent>
 
-                <Link to={`/formularioPostagem/${post.id}`} className="text-decorator-none" >
-                  <Box mx={1}>
-                    <Button variant="contained" className="marginLeft botao" size='small' >
-                      Atualizar
-                    </Button>
-                  </Box>
-                </Link>
+              <CardActions>
+                <Box display="flex" justifyContent="center" mb={1.5}>
 
-                <Link to={`/deletarPostagem/${post.id}`} className="text-decorator-none">
-                  <Box mx={1}>
-                    <Button variant="contained" size='small' className='botao2'>
-                      Deletar
-                    </Button>
-                  </Box>
-                </Link>
+                  <Link to={`/formularioPostagem/${post.id}`} className="text-decorator-none" >
+                    <Box mx={1}>
+                      <Button variant="contained" className="marginLeft botao" size='small' >
+                        Atualizar
+                      </Button>
+                    </Box>
+                  </Link>
 
-              </Box>
-            </CardActions>
+                  <Link to={`/deletarPostagem/${post.id}`} className="text-decorator-none">
+                    <Box mx={1}>
+                      <Button variant="contained" size='small' className='botao2'>
+                        Deletar
+                      </Button>
+                    </Box>
+                  </Link>
 
-          </Card>
-        </Box>
+                </Box>
+              </CardActions>
+
+            </Card>
+          </Box>
+        
       ))}
+      </Grid>
     </>
   )
 }

@@ -58,7 +58,8 @@ function Home() {
                     </Box>
                 </Grid>
                 <Grid item xs={6} >
-                    <img src="https://i.imgur.com/H88yIo2.png" alt="" width="500px" height="500px" />
+                    <img src="https://i.imgur.com/y9dFg4d.jpg" alt="" width="500px" height="300px" style={{borderRadius:'50px'}} />
+                    <img src="https://i.imgur.com/DoH7qxr.png" alt="" width="500px" height="300px" style={{ borderRadius:'50px'}} />
                 </Grid>
                 <Grid xs={12} className='postagens'>
                     <TabPostagem />

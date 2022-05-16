@@ -1,8 +1,36 @@
-.textos1{
+.textos1 {
     font-weight: bold !important;
 }
 
-.imagem{
+
+
+.t-log::before {
+    transform: scaleX(0);
+    transform-origin: bottom right;
+}
+
+.t-log:hover::before {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+}
+
+.t-log::before {
+    content: " ";
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    inset: 0 0 0 0;
+    background: #e94c0e;
+    z-index: -1;
+    transition: transform .3s ease;
+}
+
+
+
+.imagem {
     background-image: url(https://images5.alphacoders.com/473/thumb-1920-473292.jpg);
     background-repeat: no-repeat;
     width: 100vh;
@@ -12,18 +40,17 @@
 
 }
 
-.text-decorator-none{
+.text-decorator-none {
     text-decoration: none;
 }
 
-.botao{
+.botao {
     border-color: #2b1b60 !important;
     background-color: #2b1b60 !important;
     color: white !important;
     font-family: monospace !important;
 }
 
-.fonte-mono{
+.fonte-mono {
     font-family: monospace;
 }
-

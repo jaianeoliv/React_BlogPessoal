@@ -2,6 +2,22 @@
     text-decoration: none;
 }
 
+.caixa-grid{
+    display:grid !important;
+    grid-template-columns: 3fr 3fr 3fr 3fr;
+    grid-template-rows: auto;
+    justify-content: flex-start;
+}
+
+
+
+.caixa-post{
+   display: grid;
+   align-items: stretch !important;
+   align-content: space-between;
+  
+}
+
 .botao {
     border-color: #2b1b60 !important;
     background-color: #2b1b60 !important;
@@ -24,4 +40,12 @@
 .back-card{
     background-color: #5f92b423 !important;
   
+}
+
+.text-gray{
+    color: #6b6666;
+}
+
+.fonte-mono{
+    font-family: monospace;
 }

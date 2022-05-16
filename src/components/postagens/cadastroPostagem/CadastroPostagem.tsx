@@ -35,7 +35,7 @@ function CadastroPostagem() {
 
     useEffect(() => {
         if (token === "") {
-            toast.error('Você precisa estar logado', {
+            toast.warn('Você precisa estar logado', {
                 position: "top-right",
                 autoClose: 2000,
                 hideProgressBar: false,

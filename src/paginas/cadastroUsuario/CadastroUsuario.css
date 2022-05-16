@@ -7,6 +7,31 @@
     background-position: center;
 }
 
+.t-log2::before {
+    transform: scaleX(0);
+    transform-origin: bottom right;
+}
+
+.t-log2:hover::before {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+}
+
+.t-log2::before {
+    content: " ";
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    inset: 0 0 0 0;
+    background: #0f023de5;
+    z-index: -1;
+    transition: transform .3s ease;
+}
+
+
 .textos2{
     font-weight: bold !important;
     font-family: monospace !important;
